@@ -2,8 +2,155 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Mehak Nargotra | Portfolio</title>
+  <title>Mehak Nargotra | Interactive Timeline</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f4f7f9;
+      color: #333;
+    }
+
+    header {
+      background: linear-gradient(to right, #1a2980, #26d0ce);
+      color: white;
+      padding: 30px;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+    }
+
+    .contact a {
+      color: #fcd000;
+      margin: 0 10px;
+      text-decoration: none;
+    }
+
+    .timeline {
+      position: relative;
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 10px;
+    }
+
+    .timeline::after {
+      content: '';
+      position: absolute;
+      width: 6px;
+      background-color: #26d0ce;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      margin-left: -3px;
+    }
+
+    .container {
+      padding: 20px 40px;
+      position: relative;
+      background-color: inherit;
+      width: 50%;
+    }
+
+    .left {
+      left: 0;
+    }
+
+    .right {
+      left: 50%;
+    }
+
+    .container::after {
+      content: '';
+      position: absolute;
+      width: 25px;
+      height: 25px;
+      right: -17px;
+      background-color: white;
+      border: 4px solid #26d0ce;
+      top: 15px;
+      border-radius: 50%;
+      z-index: 1;
+    }
+
+    .right::after {
+      left: -16px;
+    }
+
+    .content {
+      padding: 20px;
+      background-color: white;
+      position: relative;
+      border-radius: 6px;
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .content h3 {
+      margin-top: 0;
+    }
+
+    .date {
+      font-size: 0.85em;
+      color: #888;
+    }
+
+    .tooltip {
+      position: relative;
+      cursor: pointer;
+    }
+
+    .tooltip .tooltiptext {
+      visibility: hidden;
+      width: 280px;
+      background-color: #2a2a2a;
+      color: #fff;
+      text-align: left;
+      border-radius: 6px;
+      padding: 10px;
+      position: absolute;
+      z-index: 1;
+      top: 110%;
+      left: 50%;
+      transform: translateX(-50%);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .tooltip:hover .tooltiptext {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9em;
+      color: #aaa;
+    }
+
+    @media screen and (max-width: 768px) {
+      .timeline::after {
+        left: 31px;
+      }
+
+      .container {
+        width: 100%;
+        padding-left: 70px;
+        padding-right: 25px;
+      }
+
+      .container::after {
+        left: 15px;
+      }
+
+      .right {
+        left: 0%;
+      }
+    }
+  </style>
 </head>
 <body>
   <header>
@@ -17,57 +164,81 @@
   </header>
 
   <section class="timeline">
-    <h2>Timeline</h2>
 
-    <div class="entry">
-      <h3>Bachelor's in Computer Science – Dr. D.Y. Patil Institute</h3>
-      <span class="date">Aug 2016 – May 2020</span>
-      <p>Graduated with GPA: 8.6/10. Built foundational knowledge in programming, data structures, and systems design.</p>
+    <div class="container left">
+      <div class="content tooltip">
+        <h3>2016–2020: Bachelors in CS</h3>
+        <span class="date">D.Y. Patil Institute</span>
+        <div class="tooltiptext">
+          Learned core CS fundamentals including data structures, OOP, databases, and software engineering practices.
+        </div>
+      </div>
     </div>
 
-    <div class="entry">
-      <h3>Virtual Trial Room (Patent: 202121039172)</h3>
-      <span class="date">Sep 2019 – May 2020</span>
-      <p>MATLAB & Tkinter desktop app for virtual shirt fitting using pose estimation.</p>
+    <div class="container right">
+      <div class="content tooltip">
+        <h3><a href="https://github.com/mehaknargotra/Efficient-Online-Cloth-Size-Prediction-and-Virtual-Cloth-Trial-Model" target="_blank">Virtual Trial Room</a></h3>
+        <span class="date">2019–2020</span>
+        <div class="tooltiptext">
+          Built in MATLAB & Tkinter. Enabled personalized shirt fitting with webcam and pose estimation. Patent granted.
+        </div>
+      </div>
     </div>
 
-    <div class="entry">
-      <h3>Software Engineer - Data @ Bridgenext</h3>
-      <span class="date">Sep 2020 – Jul 2023</span>
-      <ul>
-        <li>Built 100+ reporting modules in Pascal/SQL</li>
-        <li>Deployed ML model for sales forecasting (85% accuracy)</li>
-        <li>Designed a cloud-based data mart in Azure</li>
-      </ul>
+    <div class="container left">
+      <div class="content tooltip">
+        <h3>2020–2023: Software Engineer – Data</h3>
+        <span class="date">Bridgenext</span>
+        <div class="tooltiptext">
+          Created 100+ Pascal/SQL reports, deployed ML pipelines, and built cloud-native data marts using Azure Databricks.
+        </div>
+      </div>
     </div>
 
-    <div class="entry">
-      <h3>MS in Computer Science – UMass Amherst</h3>
-      <span class="date">Sept 2023 – May 2025</span>
-      <p>GPA: 3.9/4. Specializing in Machine Learning, NLP, and Full-Stack Development.</p>
+    <div class="container right">
+      <div class="content tooltip">
+        <h3>2023–2025: Masters in CS</h3>
+        <span class="date">UMass Amherst</span>
+        <div class="tooltiptext">
+          GPA: 3.9/4. Focus: Machine Learning, NLP, Full-stack systems, and applied data analytics.
+        </div>
+      </div>
     </div>
 
-    <div class="entry">
-      <h3>Patient Tracker Web Application</h3>
-      <span class="date">Jan 2024 – May 2024</span>
-      <p>Full-stack healthcare management system using Django, React, PostgreSQL.</p>
+    <div class="container left">
+      <div class="content tooltip">
+        <h3><a href="https://github.com/mehaknargotra/cs520-project" target="_blank">Patient Tracker App</a></h3>
+        <span class="date">2024</span>
+        <div class="tooltiptext">
+          Full-stack health management app using Django, PostgreSQL, React. Ensured HIPAA compliance and role-based access.
+        </div>
+      </div>
     </div>
 
-    <div class="entry">
-      <h3>ChuckleBot</h3>
-      <span class="date">Mar 2024 – May 2024</span>
-      <p>LLM-based joke generator using LLaMA2/3, Gemma, and Mistral. Used LoRA and DPO.</p>
+    <div class="container right">
+      <div class="content tooltip">
+        <h3><a href="https://github.com/mehaknargotra/ChuckleBot" target="_blank">ChuckleBot</a></h3>
+        <span class="date">2024</span>
+        <div class="tooltiptext">
+          Joke generator using LLaMA2/3, Gemma, Mistral with LoRA & DPO. Evaluated on humor, relevance, and grammar.
+        </div>
+      </div>
     </div>
 
-    <div class="entry">
-      <h3>Real-Time E-commerce Analytics System</h3>
-      <span class="date">Sep 2024 – Dec 2024</span>
-      <p>Kafka, PySpark, and Grafana pipeline handling 600K+ events. 48% latency reduction.</p>
+    <div class="container left">
+      <div class="content tooltip">
+        <h3><a href="https://github.com/mehaknargotra/e_commerce_532" target="_blank">E-commerce Analytics</a></h3>
+        <span class="date">2024</span>
+        <div class="tooltiptext">
+          Real-time data pipeline using Kafka, PySpark, Grafana. Processed 600K+ events and cut latency by 48%.
+        </div>
+      </div>
     </div>
+
   </section>
 
   <footer>
-    <p>&copy; 2024 Mehak Nargotra</p>
+    &copy; 2024 Mehak Nargotra
   </footer>
 </body>
 </html>
